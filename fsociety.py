@@ -200,7 +200,7 @@ class fsociety:
      dP""b8  dP"Yb  88b 88 888888 88""Yb 88 88""Yb .dP"Y8
     dP   `" dP   Yb 88Yb88   88   88__dP 88 88__dP `Ybo."
     Yb      Yb   dP 88 Y88   88   88"Yb  88 88""Yb o.`Y8b
-     YboodP  YbodP  88  Y8   88   88  Yb 88 88oodP 8bodP'
+     YboodP  8bodP  88  Y8   88   88  Yb 88 88oodP 8bodP'
      ''')
         contributorsURL = 'https://api.github.com/repos/manisso/fsociety/contributors'
         jsonResponseList = json.loads(urllib.request.urlopen(contributorsURL).read())
@@ -845,7 +845,7 @@ class wirelessTestingMenu:
 
     def completed(self):
         input("Completed, click return to go back")
-        self.__init__()
+        self.__init__
 
 
 class reaver:
@@ -1198,7 +1198,6 @@ def grabuploadedlink(url):
     except:
         pass
 
-
 def grabshell(url):
     try:
         for upl in upload:
@@ -1206,138 +1205,10 @@ def grabshell(url):
                 currentcode = urllib.request.urlopen(upl + shell).getcode()
                 if currentcode == 200:
                     print("-------------------------")
-                    print("  [ ! ] Found Shell:  " + \
-                        str(upl + shell) + " [ ! ]")
+                    print("  [ ! ] Found Shell:  " + str(upl + shell) + " [ ! ]")
                     print("-------------------------")
     except:
         pass
-
-
-def shelltarget():
-    print("Exemple: http://target.com")
-    line = input("target: ")
-    line = line.rstrip()
-    grabuploadedlink(line)
-    grabshell(line)
-
-
-def poet():
-    print("POET is a simple POst-Exploitation Tool.\n")
-    if yesOrNo():
-        os.system("git clone --depth=1 https://github.com/mossberg/poet.git")
-        os.system("python poet/server.py")
-    else:
-        postExploitationMenu.completed("POET")
-
-
-def ssls():
-    print('''sslstrip is a MITM tool that implements Moxie Marlinspike's SSL stripping
-    attacks.
-    It requires Python 2.5 or newer, along with the 'twisted' python module.''')
-    if yesOrNo():
-        os.system("git clone --depth=1 https://github.com/moxie0/sslstrip.git")
-        os.system("apt-get install python-twisted-web")
-        os.system("python sslstrip/setup.py")
-    else:
-        sniffingSpoofingMenu.completed("SSlStrip")
-
-
-def unique(seq):
-    seen = set()
-    return [seen.add(x) or x for x in seq if x not in seen]
-
-
-def bing_all_grabber(s):
-
-    lista = []
-    page = 1
-    while page <= 101:
-        try:
-            bing = "http://www.bing.com/search?q=ip%3A" + \
-                s + "+&count=50&first=" + str(page)
-            openbing = urllib.request.urlopen(bing)
-            readbing = openbing.read()
-            # decode bytes to str for regex
-            findwebs = re.findall('<h2><a href="(.*?)"', readbing.decode('utf-8', errors='ignore'))
-            for i in range(len(findwebs)):
-                allnoclean = findwebs[i]
-                findall1 = re.findall('http://(.*?)/', allnoclean)
-                for idx, item in enumerate(findall1):
-                    if 'www' not in item:
-                        findall1[idx] = 'http://www.' + item + '/'
-                    else:
-                        findall1[idx] = 'http://' + item + '/'
-                lista.extend(findall1)
-
-            page += 50
-        except urllib.error.URLError:
-            pass
-
-    final = unique(lista)
-    return final
-
-
-def check_gravityforms(sites):
-    import urllib.request, urllib.parse, urllib.error
-    gravityforms = []
-    for site in sites:
-        try:
-            if urllib.request.urlopen(site + 'wp-content/plugins/gravityforms/gravityforms.php').getcode() == 403:
-                gravityforms.append(site)
-        except:
-            pass
-
-    return gravityforms
-
-
-def gravity():
-    ip = input('Enter IP: ')
-    sites = bing_all_grabber(str(ip))
-    gravityforms = check_gravityforms(sites)
-    for ss in gravityforms:
-        print(ss)
-
-    print('\n')
-    print(('[*] Found, ', len(gravityforms), ' gravityforms.'))
-
-
-def shellnoob():
-    print('''Writing shellcodes has always been super fun, but some parts are extremely boring and error prone. Focus only on the fun part, and use ShellNoob!''')
-    if yesOrNo():
-        os.system("git clone --depth=1 https://github.com/reyammer/shellnoob.git")
-        os.system("mv shellnoob/shellnoob.py shellnoob.py")
-        os.system("python shellnoob.py --install")
-    else:
-        exploitationToolsMenu()
-
-
-def androidhash():
-    key = input("Enter the android hash: ")
-    salt = input("Enter the android salt: ")
-    os.system(
-        "git clone --depth=1 https://github.com/PentesterES/AndroidPINCrack.git")
-    os.system(
-        "cd AndroidPINCrack && python AndroidPINCrack.py -H %s -s %s" % (key, salt))
-
-
-def cmsfew():
-    print("your target must be Joomla, Mambo, PHP-Nuke, and XOOPS Only ")
-    target = input("Select a target: ")
-    os.system(
-        "wget https://dl.packetstormsecurity.net/UNIX/scanners/cms_few.py.txt -O cms.py")
-    os.system("python cms.py %s" % target)
-
-
-def smtpsend():
-    os.system("wget http://pastebin.com/raw/Nz1GzWDS --output-document=smtp.py")
-    clearScr()
-    os.system("python smtp.py")
-
-
-def pisher():
-    os.system("wget http://pastebin.com/raw/DDVqWp4Z --output-document=pisher.py")
-    clearScr()
-    os.system("python pisher.py")
 
 
 menuu = fsocietylogo + '''
@@ -1646,6 +1517,116 @@ def grabsqli(ip):
                     response = urllib.request.urlopen(i).read()
                     checksqli(i)
                 except urllib.error.HTTPError as e:
+                    # Python3: just pass, don't try to strip from str
+                    pass
+
+            page = page + 10
+    except:
+        pass
+
+
+def checksqli(sqli):
+    responsetwo = urllib.request.urlopen(sqli).read()
+    # decode bytes to str for regex
+    find = re.findall('type="file"', responsetwo.decode('utf-8', errors='ignore'))
+    if find:
+        print((" Found ==> " + sqli))
+
+
+def bing_all_grabber(s):
+    lista = []
+    page = 1
+    while page <= 101:
+        try:
+            bing = "http://www.bing.com/search?q=ip%3A" + \
+                s + "+&count=50&first=" + str(page)
+            openbing = urllib.request.urlopen(bing)
+            readbing = openbing.read()
+            # decode bytes to str for regex
+            findwebs = re.findall('<h2><a href="(.*?)"', readbing.decode('utf-8', errors='ignore'))
+            for i in range(len(findwebs)):
+                allnoclean = findwebs[i]
+                findall1 = re.findall('http://(.*?)/', allnoclean)
+                for idx, item in enumerate(findall1):
+                    if 'www' not in item:
+                        findall1[idx] = 'http://www.' + item + '/'
+                    else:
+                        findall1[idx] = 'http://' + item + '/'
+                lista.extend(findall1)
+
+            page += 50
+        except urllib.error.URLError:
+            pass
+
+    final = unique(lista)
+    return final
+
+
+def check_wordpress(sites):
+    wp = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-login.php').getcode() == 200:
+                wp.append(site)
+        except:
+            pass
+
+    return wp
+
+
+def check_joomla(sites):
+    joomla = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'administrator').getcode() == 200:
+                joomla.append(site)
+        except:
+            pass
+
+    return joomla
+
+
+def wppjmla():
+
+    ipp = input('Enter Target IP: ')
+    sites = bing_all_grabber(str(ipp))
+    wordpress = check_wordpress(sites)
+    joomla = check_joomla(sites)
+    for ss in wordpress:
+        print(ss)
+    print('[+] Found ! ', len(wordpress), ' Wordpress Websites')
+    print('-' * 30 + '\n')
+    for ss in joomla:
+        print(ss)
+
+    print('[+] Found ! ', len(joomla), ' Joomla Websites')
+
+    print('\n')
+# initialise the fscan function
+
+############################
+
+
+def grabsqli(ip):
+    try:
+        print(color.OKBLUE + "Check_Uplaod... ")
+        print('\n')
+
+        page = 1
+        while page <= 21:
+            bing = "http://www.bing.com/search?q=ip%3A" + \
+                ip + "+upload&count=50&first=" + str(page)
+            openbing = urllib.request.urlopen(bing)
+            readbing = openbing.read()
+            # decode bytes to str for regex
+            findwebs = re.findall('<h2><a href="(.*?)"', readbing.decode('utf-8', errors='ignore'))
+            sites = findwebs
+            for i in sites:
+                try:
+                    response = urllib.request.urlopen(i).read()
+                    checksqli(i)
+                except urllib.error.HTTPError as e:
+                    # Python3: just pass, don't try to strip from str
                     pass
 
             page = page + 10
@@ -1805,6 +1786,295 @@ if __name__ == "__main__":
     try:
         agreement()
         fsociety()
+    except KeyboardInterrupt:
+        print(" Finishing up...\n")
+        time.sleep(0.25)
+    except KeyboardInterrupt:
+        print(" Finishing up...\n")
+        time.sleep(0.25)
+
+
+def maine():
+
+    print(minu)
+    choose = input("choose a number: ")
+    while True:
+
+        if choose == "1":
+            drupal()
+        elif choose == "2":
+            getdrupal()
+        elif choose == "3":
+            drupallist()
+        elif choose == "4":
+            about()
+        elif choose == "99":
+            fsociety()
+        else:
+            maine()
+
+
+def unique(seq):
+    seen = set()
+    return [seen.add(x) or x for x in seq if x not in seen]
+
+
+def bing_all_grabber(s):
+    lista = []
+    page = 1
+    while page <= 101:
+        try:
+            bing = "http://www.bing.com/search?q=ip%3A" + \
+                s + "+&count=50&first=" + str(page)
+            openbing = urllib.request.urlopen(bing)
+            readbing = openbing.read()
+            # decode bytes to str for regex
+            findwebs = re.findall('<h2><a href="(.*?)"', readbing.decode('utf-8', errors='ignore'))
+            for i in range(len(findwebs)):
+                allnoclean = findwebs[i]
+                findall1 = re.findall('http://(.*?)/', allnoclean)
+                for idx, item in enumerate(findall1):
+                    if 'www' not in item:
+                        findall1[idx] = 'http://www.' + item + '/'
+                    else:
+                        findall1[idx] = 'http://' + item + '/'
+                lista.extend(findall1)
+
+            page += 50
+        except urllib.error.URLError:
+            pass
+
+    final = unique(lista)
+    return final
+
+
+def check_wordpress(sites):
+    wp = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-login.php').getcode() == 200:
+                wp.append(site)
+        except:
+            pass
+
+    return wp
+
+
+def check_joomla(sites):
+    joomla = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'administrator').getcode() == 200:
+                joomla.append(site)
+        except:
+            pass
+
+    return joomla
+
+
+def wppjmla():
+
+    ipp = input('Enter Target IP: ')
+    sites = bing_all_grabber(str(ipp))
+    wordpress = check_wordpress(sites)
+    joomla = check_joomla(sites)
+    for ss in wordpress:
+        print(ss)
+    print('[+] Found ! ', len(wordpress), ' Wordpress Websites')
+    print('-' * 30 + '\n')
+    for ss in joomla:
+        print(ss)
+
+    print('[+] Found ! ', len(joomla), ' Joomla Websites')
+
+    print('\n')
+# initialise the fscan function
+
+############################
+
+
+def grabsqli(ip):
+    try:
+        print(color.OKBLUE + "Check_Uplaod... ")
+        print('\n')
+
+        page = 1
+        while page <= 21:
+            bing = "http://www.bing.com/search?q=ip%3A" + \
+                ip + "+upload&count=50&first=" + str(page)
+            openbing = urllib.request.urlopen(bing)
+            readbing = openbing.read()
+            # decode bytes to str for regex
+            findwebs = re.findall('<h2><a href="(.*?)"', readbing.decode('utf-8', errors='ignore'))
+            sites = findwebs
+            for i in sites:
+                try:
+                    response = urllib.request.urlopen(i).read()
+                    checksqli(i)
+                except urllib.error.HTTPError as e:
+                    # Python3: just pass, don't try to strip from str
+                    pass
+
+            page = page + 10
+    except:
+        pass
+
+
+def checksqli(sqli):
+    responsetwo = urllib.request.urlopen(sqli).read()
+    # decode bytes to str for regex
+    find = re.findall('type="file"', responsetwo.decode('utf-8', errors='ignore'))
+    if find:
+        print((" Found ==> " + sqli))
+
+
+def bing_all_grabber(s):
+    lista = []
+    page = 1
+    while page <= 101:
+        try:
+            bing = "http://www.bing.com/search?q=ip%3A" + \
+                s + "+&count=50&first=" + str(page)
+            openbing = urllib.request.urlopen(bing)
+            readbing = openbing.read()
+            # decode bytes to str for regex
+            findwebs = re.findall('<h2><a href="(.*?)"', readbing.decode('utf-8', errors='ignore'))
+            for i in range(len(findwebs)):
+                allnoclean = findwebs[i]
+                findall1 = re.findall('http://(.*?)/', allnoclean)
+                for idx, item in enumerate(findall1):
+                    if 'www' not in item:
+                        findall1[idx] = 'http://www.' + item + '/'
+                    else:
+                        findall1[idx] = 'http://' + item + '/'
+                lista.extend(findall1)
+
+            page += 50
+        except urllib.error.URLError:
+            pass
+
+    final = unique(lista)
+    return final
+
+
+def check_wordpress(sites):
+    wp = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-login.php').getcode() == 200:
+                wp.append(site)
+        except:
+            pass
+
+    return wp
+
+
+def check_wpstorethemeremotefileupload(sites):
+    wpstorethemeremotefileupload = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-content/themes/WPStore/upload/index.php').getcode() == 200:
+                wpstorethemeremotefileupload.append(site)
+        except:
+            pass
+
+    return wpstorethemeremotefileupload
+
+
+def check_wpcontactcreativeform(sites):
+    wpcontactcreativeform = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-content/plugins/sexy-contact-form/includes/fileupload/index.php').getcode() == 200:
+                wpcontactcreativeform.append(site)
+        except:
+            pass
+
+    return wpcontactcreativeform
+
+
+def check_wplazyseoplugin(sites):
+    wplazyseoplugin = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-content/plugins/lazy-seo/lazyseo.php').getcode() == 200:
+                wplazyseoplugin.append(site)
+        except:
+            pass
+
+    return wplazyseoplugin
+
+
+def check_wpeasyupload(sites):
+    wpeasyupload = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-content/plugins/easy-comment-uploads/upload-form.php').getcode() == 200:
+                wpeasyupload.append(site)
+        except:
+            pass
+
+    return wpeasyupload
+
+
+def check_wpsymposium(sites):
+    wpsymposium = []
+    for site in sites:
+        try:
+            if urllib.request.urlopen(site + 'wp-symposium/server/file_upload_form.php').getcode() == 200:
+                wpsycmium.append(site)
+        except:
+            pass
+
+    return wpsymposium
+
+
+def wpminiscanner():
+    ip = input('Enter IP: ')
+    sites = bing_all_grabber(str(ip))
+    wordpress = check_wordpress(sites)
+    wpstorethemeremotefileupload = check_wpstorethemeremotefileupload(sites)
+    wpcontactcreativeform = check_wpcontactcreativeform(sites)
+    wplazyseoplugin = check_wplazyseoplugin(sites)
+    wpeasyupload = check_wpeasyupload(sites)
+    wpsymposium = check_wpsymposium(sites)
+    for ss in wordpress:
+        print(ss)
+    print('[*] Found, ', len(wordpress), ' wordpress sites.')
+    print('-' * 30 + '\n')
+    for ss in wpstorethemeremotefileupload:
+        print(ss)
+    print('[*] Found, ', len(
+        wpstorethemeremotefileupload), ' wp_storethemeremotefileupload exploit.')
+    print('-' * 30 + '\n')
+    for ss in wpcontactcreativeform:
+        print(ss)
+    print('[*] Found, ', len(wpcontactcreativeform), ' wp_contactcreativeform exploit.')
+    print('-' * 30 + '\n')
+    for ss in wplazyseoplugin:
+        print(ss)
+    print('[*] Found, ', len(wplazyseoplugin), ' wp_lazyseoplugin exploit.')
+    print('-' * 30 + '\n')
+    for ss in wpeasyupload:
+        print(ss)
+    print('[*] Found, ', len(wpeasyupload), ' wp_easyupload exploit.')
+    print('-' * 30 + '\n')
+    for ss in wpsymposium:
+        print(ss)
+
+    print('[*] Found, ', len(wpsymposium), ' wp_sympsiup exploit.')
+
+    print('\n')
+############################
+
+
+if __name__ == "__main__":
+    try:
+        agreement()
+        fsociety()
+    except KeyboardInterrupt:
+        print(" Finishing up...\n")
+        time.sleep(0.25)
     except KeyboardInterrupt:
         print(" Finishing up...\n")
         time.sleep(0.25)
