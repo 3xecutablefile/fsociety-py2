@@ -91,8 +91,8 @@
 Clone the repository and run the installer.
 
 ```bash
-git clone https://github.com/fsociety-team/fsociety.git
-cd fsociety
+git clone https://github.com/3xecutablefile/fsociety-py2.git
+cd fsociety-py2
 bash install.sh
 ```
 
@@ -104,24 +104,10 @@ Install [Python 3](https://www.python.org/downloads/) and a Unix-like terminal s
 
 
 ```bash
-git clone https://github.com/fsociety-team/fsociety.git
-cd fsociety
+git clone https://github.com/3xecutablefile/fsociety-py2.git
+cd fsociety-py2
 bash install.sh
 ```
 
-## [Docker](https://en.wikipedia.org/wiki/Docker_(software)) Usage ![docker logo](https://png.icons8.com/color/50/000000/docker.png)
-
-### Dependecies
-
-[Docker](https://www.docker.com/)
-
-[Docker-compose](https://docs.docker.com/compose/install/)
-
-```bash
-docker-compose build
-docker-compose up -d
-docker-compose exec fsociety fsociety
-docker-compose down # destroys instance
-```
 
 
