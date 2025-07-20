@@ -1,15 +1,10 @@
 # Fsociety Hacking Tools Pack
 
-[![Python2.7](https://img.shields.io/badge/Python-2.7-green.svg?style=flat-square)](https://www.python.org/downloads/release/python-2714/) 
-![OS](https://img.shields.io/badge/Tested%20On-Linux%20|%20OSX%20|%20Windows%20|%20Android-yellowgreen.svg?style=flat-square) 
-![Docker](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg?style=flat-square) 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/Manisso/fsociety/blob/master/LICENSE)
+
 
 A Penetration Testing Framework, you will have every script that a hacker needs. Works with Python 2. For a Python 3 version see our updated version at [`fsociety-team/fsociety`](https://github.com/fsociety-team/fsociety).
 
 ## Fsociety Contains All Tools Used in Mr. Robot Series
-
-[![Mr. Robot](http://nikolaskama.me/content/images/2016/07/mr-robot-1.gif)](https://wikipedia.org/wiki/Mr._Robot)
 
 ## Menu
 
@@ -142,30 +137,4 @@ docker-compose exec fsociety fsociety
 docker-compose down # destroys instance
 ```
 
-# Screenshots
 
-[![asciicast](https://asciinema.org/a/URj2nvpbYpeJyJe43KlASZ7fz.png)](https://asciinema.org/a/URj2nvpbYpeJyJe43KlASZ7fz)
-
-![alt logo](https://media.giphy.com/media/xT0xeFxyHAKirrLa24/giphy.gif)
-
-# Contributors
-
-[alexcreek](https://github.com/alexcreek)
-
-[mswell](https://github.com/mswell)
-
-[Ev3](https://github.com/Ev3)
-
-[huangsam](https://github.com/huangsam)
-
-[RyanFilho](https://github.com/RyanFilho)
-
-[gabru-md](https://github.com/gabru-md)
-
-[jdrago999](https://github.com/jdrago999)
-
-[CRO-TheHacker](https://github.com/CRO-THEHACKER)
-
-# License
-
-[MIT Licence](https://github.com/Manisso/fsociety/blob/master/LICENSE)
