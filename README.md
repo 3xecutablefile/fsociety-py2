@@ -1,4 +1,3 @@
-
 - Information Gathering
 - Password Attacks
 - Wireless Testing
@@ -87,31 +86,28 @@
 
 # Installation
 
-## Installation [Linux](https://wikipedia.org/wiki/Linux) [![alt tag](http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/OS-Linux-icon.png)](https://fr.wikipedia.org/wiki/Linux)
-
-```bash
-bash <(wget -qO- https://git.io/vAtmB)
-```
-
 ## Installation
 
-Download [Termux](https://play.google.com/store/apps/details?id=com.termux)
+Clone the repository and run the installer.
 
 ```bash
-bash <(wget -qO- https://git.io/vAtmB)
+git clone https://github.com/fsociety-team/fsociety.git
+cd fsociety
+bash install.sh
 ```
 
-Follow this video [Arif - Tech](https://www.youtube.com/watch?v=JwK5oOBjpgQ)
+For Android devices install [Termux](https://play.google.com/store/apps/details?id=com.termux) and run the same commands.
 
 ## Installation [Windows](https://wikipedia.org/wiki/Microsoft_Windows)[![alt tag](http://icons.iconarchive.com/icons/yootheme/social-bookmark/32/social-windows-button-icon.png)](https://fr.wikipedia.org/wiki/Microsoft_Windows)
 
-Download Linux Bash Like [Cygwin](https://www.cygwin.com/)
+Install [Python 3](https://www.python.org/downloads/) and a Unix-like terminal such as [Cygwin](https://www.cygwin.com/) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/).
 
-Download [Python 3](https://www.python.org/downloads/)
 
-Use Google Cloud Console [Cloud Shell](https://console.cloud.google.com/cloudshell/editor?project=&pli=1&shellonly=true)
-
-Or use free Ubuntu VPS [c9.io](https://c9.io/)
+```bash
+git clone https://github.com/fsociety-team/fsociety.git
+cd fsociety
+bash install.sh
+```
 
 ## [Docker](https://en.wikipedia.org/wiki/Docker_(software)) Usage ![docker logo](https://png.icons8.com/color/50/000000/docker.png)
 
