@@ -1,11 +1,11 @@
 # Fsociety Hacking Tools Pack
 
-[![Python2.7](https://img.shields.io/badge/Python-2.7-green.svg?style=flat-square)](https://www.python.org/downloads/release/python-2714/) 
+[![Python3](https://img.shields.io/badge/Python-3-blue.svg?style=flat-square)](https://www.python.org/)
 ![OS](https://img.shields.io/badge/Tested%20On-Linux%20|%20OSX%20|%20Windows%20|%20Android-yellowgreen.svg?style=flat-square) 
 ![Docker](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg?style=flat-square) 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/Manisso/fsociety/blob/master/LICENSE)
 
-A Penetration Testing Framework, you will have every script that a hacker needs. Works with Python 2. For a Python 3 version see our updated version at [`fsociety-team/fsociety`](https://github.com/fsociety-team/fsociety).
+A Penetration Testing Framework, you will have every script that a hacker needs. This version runs on Python 3.
 
 ## Fsociety Contains All Tools Used in Mr. Robot Series
 
@@ -121,7 +121,7 @@ Follow this video [Arif - Tech](https://www.youtube.com/watch?v=JwK5oOBjpgQ)
 
 Download Linux Bash Like [Cygwin](https://www.cygwin.com/)
 
-Download [Python](https://www.python.org/downloads/release/python-2714/)
+Download [Python 3](https://www.python.org/downloads/)
 
 Use Google Cloud Console [Cloud Shell](https://console.cloud.google.com/cloudshell/editor?project=&pli=1&shellonly=true)
 
