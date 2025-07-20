@@ -1,11 +1,3 @@
-# Fsociety Hacking Tools Pack
-
-
-
-
-## Fsociety Contains All Tools Used in Mr. Robot Series
-
-## Menu
 
 - Information Gathering
 - Password Attacks
